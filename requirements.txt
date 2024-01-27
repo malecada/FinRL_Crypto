@@ -1,7 +1,7 @@
 binance==0.3
 elegantrl==0.3.3
 exchange_calendars==3.3
-gym==0.21.0
+gymnasium
 joblib==1.1.0
 matplotlib==3.4.3
 numpy==1.22.2
