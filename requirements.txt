@@ -1,7 +1,6 @@
 binance==0.3
-elegantrl
-exchange_calendars
-fracdiff
+elegantrl==0.3.3
+exchange_calendars==3.3
 gym==0.21.0
 joblib==1.1.0
 matplotlib==3.4.3
