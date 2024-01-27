@@ -15,8 +15,6 @@ scipy==1.8.0
 seaborn==0.11.2
 statsmodels==0.13.2
 stockstats==0.3.2
-TA_Lib==0.4.21
-torch==1.9.1
 tqdm==4.63.0
 trading_calendars==2.1.1
 yfinance==0.1.63
