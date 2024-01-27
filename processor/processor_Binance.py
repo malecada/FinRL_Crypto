@@ -72,7 +72,10 @@ class BinanceProcessor():
         data = data.drop(columns=['time'])
         data['timestamp'] = self.servertime_to_datetime(data['timestamp'])
         data = data.set_index('timestamp')
+        non_tech_columns = set(data.columns)
         data = self.add_technical_indicator(data, technical_indicator_list)
+        tech_columns = list(set(data.columns).difference(non_tech_columns))
+        # data = self.drop_correlated_features(data[tech_columns])
         data = self.drop_correlated_features(data)
 
         if if_vix:
@@ -102,14 +105,15 @@ class BinanceProcessor():
             df = hist_data.iloc[:-1]
             df = df.dropna()
             df['tic'] = i
-            final_df = final_df.append(df)
+            # final_df = final_df.concat(df)
+            final_df = pd.concat([final_df, df], ignore_index=True)
 
         return final_df
 
-    def frac_diff_features(self, array):
-        print('Differentiating tech array...')
-        array = FracdiffStat().fit_transform(array)
-        return array
+    # def frac_diff_features(self, array):
+    #     print('Differentiating tech array...')
+    #     array = FracdiffStat().fit_transform(array)
+    #     return array
 
     def clean_data(self, df):
         df = df.dropna()
@@ -123,17 +127,18 @@ class BinanceProcessor():
             coin_df = self.get_TALib_features_for_each_coin(coin_df)
 
             # Append constructed tic_df
-            final_df = final_df.append(coin_df)
+            # final_df = final_df.append(coin_df)
+            final_df = pd.concat([final_df, coin_df], ignore_index=True)
 
         return final_df
 
     def drop_correlated_features(self, df):
-        corr_matrix = pd.DataFrame(df).corr().abs()
-        upper_tri = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k=1).astype(np.bool))
-        to_drop = [column for column in upper_tri.columns if any(upper_tri[column] > self.correlation_threshold)]
-
-        to_drop.remove('close')
-        print('according to analysis, drop: ', to_drop)
+        # corr_matrix = pd.DataFrame(df).corr().abs()
+        # upper_tri = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k=1).astype(np.bool_))
+        # to_drop = [column for column in upper_tri.columns if any(upper_tri[column] > self.correlation_threshold)]
+        #
+        # to_drop.remove('close')
+        # print('according to analysis, drop: ', to_drop)
         real_drop = ['high', 'low', 'open', 'macd', 'cci', 'roc', 'willr']
         print('dropping for model consistency: ', real_drop)
 

@@ -44,6 +44,8 @@ def nCr(n, r):
 
 trade_start_date = '2022-04-30 00:00:00'
 trade_end_date = '2022-06-27 00:00:00'
+# trade_end_date = '2022-04-30 12:00:00'
+
 
 SEED_CFG = 2390408
 TIMEFRAME = '5m'
@@ -58,6 +60,8 @@ print(NUMBER_OF_SPLITS)
 
 no_candles_for_train = 20000
 no_candles_for_val = 5000
+# no_candles_for_train = 200
+# no_candles_for_val = 50
 
 TICKER_LIST = ['AAVEUSDT',
                'AVAXUSDT',

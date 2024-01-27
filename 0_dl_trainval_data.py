@@ -80,7 +80,7 @@ def save_data(data_folder, data_from_processor, price_array, tech_array, time_ar
 def save_data_to_disk(data_from_processor, price_array, tech_array, time_array):
     data_folder = f'./data/{TIMEFRAME}_{no_candles_for_train + no_candles_for_val}'
     if not os.path.exists(data_folder):
-        os.mkdir(data_folder)
+        os.makedirs(data_folder)
     _save_to_disk(data_from_processor, f"{data_folder}/data_from_processor")
     _save_to_disk(price_array, f"{data_folder}/price_array")
     _save_to_disk(tech_array, f"{data_folder}/tech_array")
