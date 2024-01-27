@@ -19,7 +19,7 @@ certain data sources.
 
 add_technical_indicator method is used to calculate technical indicators. It takes in two parameters
 tech_indicator_list which is a list of strings and select_stockstats_talib which is an integer that defaults to 0.
-The method use stockstats/talib package to add technical inidactors to the dataframe.
+The method use stockstats/talib config to add technical inidactors to the dataframe.
 
 """
 
@@ -80,7 +80,7 @@ class _Base:
     def add_technical_indicator(self, tech_indicator_list: List[str], select_stockstats_talib: int = 0):
         """
         calculate technical indicators
-        use stockstats/talib package to add technical inidactors
+        use stockstats/talib config to add technical inidactors
         :param data: (df) pandas dataframe
         :return: (df) pandas dataframe
         """

@@ -14,7 +14,7 @@ factor."""
 
 import numpy as np
 import math
-from config_main import ALPACA_LIMITS
+from config.config_main import ALPACA_LIMITS
 
 
 class CryptoEnvAlpaca:  # custom env

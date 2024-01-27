@@ -28,8 +28,8 @@ module."""
 import os
 import pickle
 
-from processor_Binance import BinanceProcessor
-from config_main import TICKER_LIST, TECHNICAL_INDICATORS_LIST, TIMEFRAME, trade_start_date, trade_end_date, no_candles_for_train
+from processor.processor_Binance import BinanceProcessor
+from config.config_main import TICKER_LIST, TECHNICAL_INDICATORS_LIST, TIMEFRAME, trade_start_date, trade_end_date
 
 
 def main():

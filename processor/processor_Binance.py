@@ -45,7 +45,7 @@ import numpy as np
 from binance.client import Client
 from talib import RSI, MACD, CCI, DX, ROC, ULTOSC, WILLR, OBV, HT_DCPHASE
 
-from config_api import *
+from config.config_api import *
 import datetime as dt
 from processor_Yahoo import Yahoofinance
 from fracdiff.sklearn import FracdiffStat

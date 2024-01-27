@@ -21,7 +21,7 @@ the data to the specified file path
 import os
 import pickle
 
-from config_main import (
+from config.config_main import (
     TICKER_LIST,
     TIMEFRAME,
     no_candles_for_train,
@@ -32,7 +32,7 @@ from config_main import (
     VAL_START_DATE,
     VAL_END_DATE
 )
-from processor_Binance import BinanceProcessor
+from processor.processor_Binance import BinanceProcessor
 
 
 def print_config_variables():

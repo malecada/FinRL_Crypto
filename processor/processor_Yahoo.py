@@ -44,7 +44,7 @@ except:
     import trading_calendars as tc
     print('Use trading_calendars instead for yahoofinance processor..')
 # from basic_processor import _Base
-from processor_Base import _Base
+from processor.processor_Base import _Base
 
 
 class Yahoofinance(_Base):

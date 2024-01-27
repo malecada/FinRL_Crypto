@@ -41,9 +41,9 @@ import os
 
 from distutils.dir_util import copy_tree
 from env.environment_Alpaca import CryptoEnvAlpaca
-from function_CPCV import *
-from function_train_test import *
-from config_main import *
+from functions.function_CPCV import *
+from functions.function_train_test import *
+from config.config_main import *
 
 
 class bcolors:

@@ -1,9 +1,8 @@
 import joblib
 import seaborn as sns
 import math
-from function_finance_metrics import *
-from function_PBO import pbo
-from config_main import *
+from functions.function_finance_metrics import *
+from functions.function_PBO import pbo
 
 
 # Functions
