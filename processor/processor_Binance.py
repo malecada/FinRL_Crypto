@@ -47,8 +47,8 @@ from talib import RSI, MACD, CCI, DX, ROC, ULTOSC, WILLR, OBV, HT_DCPHASE
 
 from config.config_api import *
 import datetime as dt
-from processor_Yahoo import Yahoofinance
-from fracdiff.sklearn import FracdiffStat
+from processor.processor_Yahoo import Yahoofinance
+# from fracdiff.sklearn import FracdiffStat
 
 binance_client = Client(api_key=API_KEY_BINANCE, api_secret=API_SECRET_BINANCE)
 
