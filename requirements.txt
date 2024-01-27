@@ -1,5 +1,5 @@
 binance==0.3
-elegantrl==0.3.3
+elegantrl
 exchange_calendars==3.3
 fracdiff
 gym==0.21.0
