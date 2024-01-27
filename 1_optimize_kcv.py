@@ -35,14 +35,12 @@ import optuna
 import datetime
 import pickle
 import os
-import sys
 
 from distutils.dir_util import copy_tree
-from environment_Alpaca import CryptoEnvAlpaca
-from function_CPCV import *
+from env.environment_Alpaca import CryptoEnvAlpaca
 from function_train_test import *
 from config_main import *
-from sklearn.model_selection import KFold, StratifiedKFold
+from sklearn.model_selection import KFold
 
 
 class bcolors:

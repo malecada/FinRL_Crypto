@@ -33,7 +33,7 @@ from distutils.dir_util import copy_tree
 
 import pandas as pd
 
-from environment_Alpaca import CryptoEnvAlpaca
+from env.environment_Alpaca import CryptoEnvAlpaca
 from function_train_test import train_and_test
 from config_main import *
 
