@@ -100,6 +100,7 @@ class AgentPPO(AgentBase):
         get_a_to_e = self.act.get_a_to_e
         while step_i < target_step or not any(ten_dones):
             ten_a, ten_n = get_action(ten_s)  # different
+            print(ten_a)
             ten_s_next, ten_rewards, ten_dones, _ = env.step(get_a_to_e(ten_a))
 
             traj_list.append(
