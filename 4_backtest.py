@@ -79,7 +79,7 @@ def load_and_process_data(TIMEFRAME, trade_start_date, trade_end_date):
         time_array = pickle.load(handle)
 
     CVIX_df = download_CVIX(trade_start_date, trade_end_date)
-    CVIX_df = pd.merge(time_array.to_series(), CVIX_df, left_index=True, right_index=True, how='left')
+    CVIX_df = pd.merge(time_array.to_series().rename('time_array'), CVIX_df, left_index=True, right_index=True, how='left')
     cvix_array = CVIX_df['close'].values
     cvix_array_growth = np.diff(cvix_array)
 
