@@ -134,3 +134,55 @@ class DRLAgent:
         print("\n Test Finished!")
         print("episode_return: ", episode_return - 1, '\n')
         return episode_total_assets
+
+
+    def DRL_env_prediction(model_name, cwd, net_dimension, environment, gpu_id):
+        if model_name not in MODELS:
+            raise NotImplementedError("NotImplementedError")
+        agent = MODELS[model_name]
+        environment.env_num = 1
+
+        args = Arguments(agent=agent, env=environment)
+
+        args.cwd = cwd
+        args.net_dim = net_dimension
+        # load agent
+        try:
+            agent = init_agent(args, gpu_id=gpu_id)
+            act = agent.act
+            device = agent.device
+        except BaseException:
+            raise ValueError("Fail to load agent!")
+
+        # test on the testing env
+        _torch = torch
+        state = environment.reset()
+        episode_returns = list()  # the cumulative_return / initial_account
+        episode_total_assets = list()
+        episode_total_assets.append(environment.initial_total_asset)
+        episode_actions = []
+
+        with _torch.no_grad():
+            for i in range(environment.max_step):
+                s_tensor = _torch.as_tensor((state,), device=device)
+                a_tensor = act(s_tensor)  # action_tanh = act.forward()
+                action = (
+                    a_tensor.detach().cpu().numpy()[0]
+                )  # not need detach(), because with torch.no_grad() outside
+                state, reward, done, _ = environment.step(action)
+                episode_actions.append(action)
+
+                total_asset = (
+                        environment.cash
+                        + (
+                                environment.price_array[environment.time] * environment.stocks
+                        ).sum()
+                )
+                episode_total_assets.append(total_asset)
+                episode_return = total_asset / environment.initial_total_asset
+                episode_returns.append(episode_return)
+                if done:
+                    break
+        print("\n Test Finished!")
+        print("episode_return: ", episode_return - 1, '\n')
+        return episode_total_assets, episode_actions
