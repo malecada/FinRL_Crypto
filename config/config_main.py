@@ -42,14 +42,14 @@ def nCr(n, r):
 #######################################################################################################
 #######################################################################################################
 
-trade_start_date = '2022-04-30 00:00:00'
-trade_end_date = '2022-06-27 00:00:00'
+trade_start_date = '2023-01-01 00:00:00'
+trade_end_date = '2024-01-01 00:00:00'
 # trade_end_date = '2022-04-30 12:00:00'
 
 
 SEED_CFG = 2390408
 TIMEFRAME = '5m'
-H_TRIALS = 50
+H_TRIALS = 15
 KCV_groups = 5
 K_TEST_GROUPS = 2
 NUM_PATHS = 4
@@ -58,21 +58,25 @@ NUMBER_OF_SPLITS = nCr(N_GROUPS, N_GROUPS - K_TEST_GROUPS)
 
 print(NUMBER_OF_SPLITS)
 
-no_candles_for_train = 20000
-no_candles_for_val = 5000
+no_candles_for_train = 50000
+no_candles_for_val = 15000
 # no_candles_for_train = 200
 # no_candles_for_val = 50
 
-TICKER_LIST = ['AAVEUSDT',
-               'AVAXUSDT',
-               'BTCUSDT',
-               'NEARUSDT',
-               'LINKUSDT',
-               'ETHUSDT',
-               'LTCUSDT',
-               'MATICUSDT',
-               'UNIUSDT',
-               'SOLUSDT',
+# 'AAVEUSDT',
+# 'AVAXUSDT',
+# 'LINKUSDT',
+# 'LTCUSDT',
+# 'MATICUSDT',
+# 'UNIUSDT',
+# 'SOLUSDT',
+# 'NEARUSDT',
+
+TICKER_LIST = [
+    'BTCUSDT',
+    'ETHUSDT',
+    'BNBUSDT',
+    'XRPUSDT'
                ]
 
 
