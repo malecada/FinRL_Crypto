@@ -169,7 +169,6 @@ class DRLAgent:
                 action = (
                     a_tensor.detach().cpu().numpy()[0]
                 )  # not need detach(), because with torch.no_grad() outside
-                print(action)
                 state, reward, done, _ = environment.step(action)
                 episode_actions.append(action)
 
