@@ -49,7 +49,7 @@ trade_end_date = '2024-01-01 00:00:00'
 
 SEED_CFG = 2390408
 TIMEFRAME = '5m'
-H_TRIALS = 15
+H_TRIALS = 3
 KCV_groups = 5
 K_TEST_GROUPS = 2
 NUM_PATHS = 4
